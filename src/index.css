@@ -1,13 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f4f6;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Предотвращение выделения текста */
+.react-grid-item {
+  user-select: none;
+}
+
+/* Улучшение стиля перетаскивания */
+.react-draggable-dragging {
+  cursor: grabbing !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  z-index: 10 !important;
+}
+
+/* Улучшенный стиль для кнопки удаления */
+.widget-remove-btn {
+  cursor: pointer !important;
+  z-index: 20 !important;
+}
+
+/* Стили для разных типов виджетов */
+.react-grid-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Обеспечиваем, чтобы содержимое виджета адаптировалось под размер */
+.react-grid-item > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* Стили для минимальных размеров разных типов виджетов */
+.react-grid-item[data-min-h="1"] {
+  min-height: 100px !important;
+}
+
+.react-grid-item[data-min-h="2"] {
+  min-height: 200px !important;
+}
+
+.react-grid-item[data-min-w="1"] {
+  min-width: 100px !important;
+}
+
+.react-grid-item[data-min-w="2"] {
+  min-width: 200px !important;
+}
+
+/* Стили для ручек изменения размера */
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+  z-index: 10;
+}
+
+/* Показать стандартную ручку реактивного макета */
+.react-grid-item.editing > .react-resizable-handle {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Скрыть наш собственный угол, когда используется стандартная ручка */
+.editing .absolute.bottom-0.right-0.w-4.h-4.border-b-2.border-r-2 {
+  display: none;
 }
