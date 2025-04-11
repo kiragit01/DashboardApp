@@ -19,8 +19,8 @@ Dashboard application with customizable widgets.
 
 ```bash
 # Clone repository
-git clone <repository-url>
-cd dashboard-app
+git clone https://github.com/kiragit01/DashboardApp
+cd DashboardApp
 
 # Install dependencies
 npm install
