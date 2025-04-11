@@ -1,4 +1,4 @@
-export const getFromStorage = <T>(key: string): T | null => {
+export const getFromStorage = (key) => {
   try {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
@@ -8,7 +8,7 @@ export const getFromStorage = <T>(key: string): T | null => {
   }
 };
 
-export const setToStorage = <T>(key: string, value: T): void => {
+export const setToStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -16,7 +16,7 @@ export const setToStorage = <T>(key: string, value: T): void => {
   }
 };
 
-export const removeFromStorage = (key: string): void => {
+export const removeFromStorage = (key) => {
   try {
     localStorage.removeItem(key);
   } catch (error) {
@@ -24,7 +24,7 @@ export const removeFromStorage = (key: string): void => {
   }
 };
 
-export const clearStorage = (): void => {
+export const clearStorage = () => {
   try {
     localStorage.clear();
   } catch (error) {
